@@ -22,4 +22,4 @@ scanner.on("data", function(code){
 
 ```
 
-* Thanks @hanshuebner for [node-hid](https://github.com/node-hid/node-hid)
+* Thanks [@hanshuebner](https://github.com/hanshuebner) for [node-hid](https://github.com/node-hid/node-hid)
