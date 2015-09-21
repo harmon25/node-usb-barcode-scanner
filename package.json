@@ -1,6 +1,6 @@
 {
   "name": "node-usb-barcode-scanner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package to help work with USB HID based barcode scanners in nodejs",
   "main": "usbscanner.js",
   "scripts": {
