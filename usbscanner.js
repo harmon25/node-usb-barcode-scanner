@@ -36,7 +36,7 @@ usbScanner.prototype.init = function(options){
 	29:"Z",30: '1', 31: '2', 32: '3', 33: '4',
 	34: '5',35: '6', 36: '7', 37: '8', 38: '9',
 	// enter - barcode escape char
-	39: '0',40: 'enter', 44:" ",45:"-", 55:".", 56:"/",
+	39: '0',40: 'enter',44:" ",45:"-", 55:".", 56:"/",
 	85:"*", 87:"+"
 	};
 
@@ -60,6 +60,10 @@ usbScanner.prototype.startScanning = function(device){
 		this.emit("data", code)
 	}.bind(this)
 
+	var getError = function (er) {
+		this.emit('error', er)
+	}.bind(this)
+
 	device.on("data", function(chunk) {
     //second byte of buffer is all that contains data
     if (hidMap[chunk[2]]) {
@@ -75,10 +79,9 @@ usbScanner.prototype.startScanning = function(device){
         }
     }
 });
+device.on('error', function(er) {
+	getError(er);
+});
 }
 
 module.exports = {usbScanner:usbScanner, getDevices:getDevices}
-
-
-
-
