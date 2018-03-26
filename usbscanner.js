@@ -27,6 +27,7 @@ let usbDevice;
 
 usbScanner.prototype.init = function(options){
 	var vendorId =  options.vendorId || 1534
+	var devicePath = options.devicePath || null
 	var allDevices = getDevices();
 	//hidMap defining keyboard code to coresponding string value
 	this.hidMap = options.hidMap || {
@@ -41,8 +42,8 @@ usbScanner.prototype.init = function(options){
 	39: '0',40: 'enter',44:" ",45:"-", 55:".", 56:"/",
 	85:"*", 87:"+"
 	};
-
-	var scanner = _.find(allDevices, function(device) {
+	
+	var scanner = devicePath ? {path: devicePath} : _.find(allDevices, function(device) {
     	return (device.vendorId === vendorId)
 	});
 
