@@ -1,6 +1,5 @@
 var HID = require("node-hid");
-var _ = require("underscore");
-var events = require("events");
+const EventEmitter = require("events");
 var util = require("util");
 
 /*
@@ -12,11 +11,11 @@ defaults:
 function usbScanner(options) {
   var opts = options || {};
   this.init(opts);
-  events.EventEmitter.call(this);
+  EventEmitter.call(this);
 }
 
 //enherit event emitter
-util.inherits(usbScanner, events.EventEmitter);
+util.inherits(usbScanner, EventEmitter);
 
 function getDevices() {
   return HID.devices();
@@ -76,9 +75,7 @@ usbScanner.prototype.init = function(options) {
 
   var scanner = devicePath
     ? { path: devicePath }
-    : _.find(getDevices(), function(device) {
-        return device.vendorId === vendorId;
-      });
+    : getDevices().find(device => device.vendorId === vendorId);
 
   this.device = new HID.HID(scanner.path);
   // start waiting for scan events
