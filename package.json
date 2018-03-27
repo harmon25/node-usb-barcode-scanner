@@ -14,7 +14,10 @@
   ],
   "readmeFilename": "README.md",
   "author": "harmon25",
-  "repository": { "type": "git", "url": "https://github.com/harmon25/node-usb-barcode-scanner"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harmon25/node-usb-barcode-scanner"
+  },
   "license": "GPLv3",
   "dependencies": {
     "node-hid": "^0.4.0",
