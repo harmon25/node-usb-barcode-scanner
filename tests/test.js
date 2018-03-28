@@ -36,7 +36,7 @@ setTimeout(() => {
   console.log("Scanner 1 stopping...");
   scanner.stopScanning();
   console.log("Starting scanner 2 via device path");
-  var scanner2 = new usbScanner({ devicePath: "0001:0008:00" });
+  var scanner2 = new usbScanner({ devicePath: "/dev/hidraw2" });
 
   scanner2.on("data", code => {
     console.log("recieved code from device 2 : " + code);

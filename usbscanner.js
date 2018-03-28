@@ -78,6 +78,7 @@ usbScanner.prototype.init = function(options) {
     : getDevices().find(device => device.vendorId === vendorId);
 
   this.device = new HID.HID(scanner.path);
+  this.device.setNonBlocking(1);
   // start waiting for scan events
   this.startScanning();
 };
