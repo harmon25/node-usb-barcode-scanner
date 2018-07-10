@@ -1,5 +1,7 @@
 # node-usb-barcode-scanner
-Package to help work with USB HID based barcode scanners in nodejs
+Package to help work with USB HID based barcode scanners in nodejs on Linux and OSX.
+
+[*Does not work on Windows*](https://github.com/node-hid/node-hid#windows-notes)
 
 ## Usage
 ```javascript
